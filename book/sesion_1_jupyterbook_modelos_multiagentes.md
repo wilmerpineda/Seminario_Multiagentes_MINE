@@ -167,7 +167,7 @@ Estos modelos son capaces de:
 
 # Ejemplos de modelos modernos
 
-![Comparación de modelos modernos](/images/model_comparison.png)
+![Comparación de modelos modernos](images/model_comparison.png)
 
 ---
 

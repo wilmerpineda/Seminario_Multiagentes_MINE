@@ -588,13 +588,7 @@ Descubrir que distintos modelos:
 
 # Experimento en vivo
 
-El profesor ejecutará el mismo prompt en distintos modelos:
-
-| Modelo | Organización |
-|---|---|
-| GPT | entity["company","OpenAI","San Francisco, CA, USA"] |
-| Gemini | entity["company","Google","Mountain View, CA, USA"] |
-| Claude | entity["company","Anthropic","San Francisco, CA, USA"] |
+Vamos a ejecutar el mismo prompt en distintos modelos:
 
 ---
 

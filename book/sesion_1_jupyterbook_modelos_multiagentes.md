@@ -167,13 +167,7 @@ Estos modelos son capaces de:
 
 # Ejemplos de modelos modernos
 
-| Modelo | Organización |
-|---|---|
-| GPT | entity["company","OpenAI","San Francisco, CA, USA"] |
-| Gemini | entity["company","Google","Mountain View, CA, USA"] |
-| Claude | entity["company","Anthropic","San Francisco, CA, USA"] |
-| Llama | entity["company","Meta Platforms","Menlo Park, CA, USA"] |
-| Mistral | entity["company","Mistral AI","Paris, France"] |
+![Comparación de modelos modernos](/images/model_comparison.png)
 
 ---
 

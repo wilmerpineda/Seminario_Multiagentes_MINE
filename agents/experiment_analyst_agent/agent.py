@@ -12,9 +12,9 @@ from typing import Any
 
 import ollama
 
-from experiment_analyst_agent.prompts import SYSTEM_PROMPT
-from experiment_analyst_agent.data_loader import load_activations_data
-from experiment_analyst_agent.metrics import (
+from .prompts import SYSTEM_PROMPT
+from .data_loader import load_activations_data
+from .metrics import (
     compute_activation_rate,
     compute_activation_rate_by_experiment,
     compute_segment_analysis

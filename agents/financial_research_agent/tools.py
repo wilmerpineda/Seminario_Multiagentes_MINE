@@ -34,22 +34,34 @@ class ToolRegistry:
         self._tools: dict[str, Tool] = {
             "get_stock_data": Tool(
                 name="get_stock_data",
-                description="Download recent historical OHLCV data from Yahoo Finance.",
+                description=(
+                    "Download recent historical OHLCV data from Yahoo Finance. "
+                    "Arguments: ticker (string), period (string, optional)."
+                ),
                 function=get_stock_data,
             ),
             "compute_stock_metrics": Tool(
                 name="compute_stock_metrics",
-                description="Compute return, volatility and drawdown metrics for one stock or ETF.",
+                description=(
+                    "Compute return, volatility and drawdown metrics for one stock "
+                    "or ETF. Arguments: ticker (string), period (string, optional)."
+                ),
                 function=compute_stock_metrics,
             ),
             "plot_price_history": Tool(
                 name="plot_price_history",
-                description="Generate a price history chart for one stock or ETF.",
+                description=(
+                    "Generate a price history chart for one stock or ETF. "
+                    "Arguments: ticker (string), period (string, optional)."
+                ),
                 function=plot_price_history,
             ),
             "compare_stocks": Tool(
                 name="compare_stocks",
-                description="Compare multiple stocks or ETFs over the same period.",
+                description=(
+                    "Compare multiple stocks or ETFs over the same period. "
+                    "Arguments: tickers (list of strings), period (string, optional)."
+                ),
                 function=compare_stocks,
             ),
         }
@@ -295,6 +307,14 @@ def normalize_tool_arguments(tool_name: str, arguments: dict[str, Any]) -> dict[
     if tool_name in {"get_stock_data", "compute_stock_metrics", "plot_price_history"}:
         if "ticker" not in normalized and "symbol" in normalized:
             normalized["ticker"] = normalized.pop("symbol")
+        if "ticker" not in normalized and "tickers" in normalized:
+            tickers = normalized.pop("tickers")
+            if not isinstance(tickers, list) or len(tickers) != 1:
+                raise ValueError(
+                    f"{tool_name} requires exactly one ticker. "
+                    "Use compare_stocks for multiple tickers."
+                )
+            normalized["ticker"] = tickers[0]
 
     if "period" in normalized and isinstance(normalized["period"], str):
         normalized["period"] = normalize_period(normalized["period"])

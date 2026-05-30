@@ -11,6 +11,9 @@ python -m poetry install
 python -m poetry run python -m ipykernel install --user --name financial-research-agent --display-name "Financial Research Agent"
 ```
 
+If the project folder is moved, run the kernel registration command again so
+Jupyter points to the current `.venv` path.
+
 ## Uso basico
 
 ```python

@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "agente-inversiones"
+version = "0.1.0"
+description = "Agente para simulación de rentabilidades en renta fija (CDT) y renta variable, con LLM Ollama qwen2.5:32b"
+authors = ["José"]
+readme = "README.md"
+packages = [{ include = "agente_inversiones" }]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pydantic = "^2.7"
+numpy = "^1.26"
+ollama = "^0.3.3"
+rich = "^13.7"
+typer = "^0.12"
+
+[tool.poetry.group.dev.dependencies]
+pylint = "^3.2"
+pytest = "^8.2"
+black = "^24.4"
+
+[tool.poetry.scripts]
+agente = "agente_inversiones.main:app"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]

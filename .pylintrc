@@ -1,0 +1,27 @@
+[MASTER]
+ignore = .venv, __pycache__, tests
+jobs = 0
+
+[MESSAGES CONTROL]
+disable =
+    too-few-public-methods,
+    logging-fstring-interpolation,
+    duplicate-code,
+    cyclic-import
+
+[FORMAT]
+max-line-length = 100
+indent-string = "    "
+
+[BASIC]
+good-names = i, j, k, n, m, v, z, vp, vf, df, ln, np, mu, _
+variable-rgx = [a-z_][a-z0-9_]{1,30}$
+argument-rgx = [a-z_][a-z0-9_]{1,30}$
+
+[DESIGN]
+max-args = 8
+max-attributes = 12
+max-locals = 20
+
+[REPORTS]
+output-format = colorized

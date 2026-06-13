@@ -311,6 +311,42 @@ En esta sesion usaremos una base vectorial local para mantener un flujo simple:
 
 En sistemas reales, una empresa podria usar bases vectoriales administradas, motores de busqueda hibrida o integraciones con plataformas documentales.
 
+## Guia rapida: instalar ChromaDB
+
+Para las sesiones 4 y 5 usaremos ChromaDB como base vectorial local. La
+dependencia ya esta declarada en el `pyproject.toml` del repositorio, por lo que
+la forma recomendada de instalarla es ejecutar:
+
+```bash
+poetry install
+```
+
+Si no se esta usando Poetry, se puede instalar directamente con `pip`:
+
+```bash
+pip install chromadb
+```
+
+Para verificar que quedo instalada:
+
+```bash
+python -c "import chromadb; print(chromadb.__version__)"
+```
+
+Ademas de ChromaDB, el agente necesita Ollama para generar embeddings y
+respuestas locales:
+
+```bash
+ollama pull qwen2.5:3b
+ollama pull nomic-embed-text
+```
+
+Si aparece un error como `chromadb is required for semantic retrieval`, significa
+que el ambiente de Python desde el que se esta ejecutando el notebook no tiene
+ChromaDB instalado. En ese caso, revisar que Jupyter este usando el mismo
+ambiente donde se ejecuto `poetry install` o instalar `chromadb` en el kernel
+activo.
+
 ---
 
 ## Consulta documental

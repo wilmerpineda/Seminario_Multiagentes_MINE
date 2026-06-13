@@ -125,6 +125,41 @@ La memoria documental no es memoria conversacional. La base vectorial guarda
 fragmentos de documentos; el historial del chat guarda interacciones del usuario.
 Ambas memorias pueden coexistir, pero resuelven problemas distintos.
 
+## Guia rapida: instalar ChromaDB
+
+Para ejecutar el chatbot documental de las sesiones 4 y 5, primero instalar las
+dependencias del repositorio:
+
+```bash
+poetry install
+```
+
+Ese comando instala ChromaDB, `pypdf`, Streamlit, Ollama y las demas librerias
+declaradas en `pyproject.toml`. Si se esta trabajando sin Poetry, instalar al
+menos estas dependencias en el ambiente activo:
+
+```bash
+pip install chromadb pypdf streamlit ollama
+```
+
+Verificacion rapida:
+
+```bash
+python -c "import chromadb; print(chromadb.__version__)"
+```
+
+Tambien se requieren los modelos locales de Ollama:
+
+```bash
+ollama pull qwen2.5:3b
+ollama pull nomic-embed-text
+```
+
+Si Jupyter o Streamlit no encuentran ChromaDB, normalmente el problema es que se
+esta usando un kernel o terminal distinto al ambiente donde se instalaron las
+dependencias. En ese caso, activar el ambiente correcto o instalar `chromadb` en
+el kernel que se esta usando.
+
 ---
 
 ## Chatbot empresarial

@@ -50,6 +50,9 @@ El agente tendra acceso a tres documentos internos:
 - una politica comercial de descuentos,
 - un diccionario de KPIs comerciales.
 
+Como ejercicio adicional, los estudiantes tambien podran incorporar documentos
+complementarios sobre logistica y retencion de clientes para ampliar el caso.
+
 El objetivo no sera preguntarle al agente "que es RAG", sino usar RAG para responder preguntas que un equipo de Inteligencia de Negocios podria recibir antes de un comite:
 
 ```text
@@ -447,11 +450,16 @@ La calidad de un sistema RAG depende tanto de la recuperacion como de la generac
 
 Construiremos un agente RAG para NovaRetail, una empresa ficticia de retail.
 
-El agente tendra tres documentos internos:
+El agente tendra tres documentos internos principales:
 
 1. `reporte_comercial_q3_2026.md`
 2. `politica_descuentos_2026.md`
 3. `definiciones_kpi_comerciales.md`
+
+Como extension del ejercicio, tambien se incluyen dos documentos adicionales:
+
+4. `acta_comite_logistica_q3_2026.md`
+5. `plan_retencion_clientes_q4_2026.md`
 
 El objetivo es que el estudiante vea la diferencia entre:
 
@@ -495,6 +503,40 @@ Cual fue el EBITDA de NovaRetail en Q3?
 ```
 
 El agente deberia reconocer que los documentos disponibles no contienen esa informacion.
+
+## Ejercicio adicional con nuevos documentos
+
+Para extender la practica, los estudiantes pueden reindexar la carpeta
+`data/rag_business_case` incluyendo los documentos de logistica y retencion. No
+es necesario escribir codigo nuevo: basta con volver a cargar e indexar los
+documentos Markdown de la carpeta y ejecutar preguntas nuevas.
+
+Preguntas adicionales:
+
+```text
+Que ciudades intermedias deberia priorizar NovaRetail para reducir incidencias logisticas y por que?
+```
+
+```text
+Que segmentos de clientes deberian recibir acciones de retencion en Q4 y que evidencia lo justifica?
+```
+
+```text
+Debe NovaRetail lanzar campanas digitales agresivas en ciudades intermedias durante Q4?
+```
+
+```text
+Cuando conviene ofrecer un descuento a un cliente en riesgo y cuando conviene resolver primero un problema operativo?
+```
+
+```text
+Que indicadores deberia revisar semanalmente el equipo de BI para monitorear churn, logistica y descuentos?
+```
+
+Una buena respuesta RAG deberia combinar evidencia de varios documentos, por
+ejemplo el reporte comercial, el acta logistica, el plan de retencion y la
+politica de descuentos. Tambien deberia citar los `chunk_id` usados y reconocer
+cuando la evidencia recuperada no sea suficiente.
 
 ---
 

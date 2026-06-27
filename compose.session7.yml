@@ -1,0 +1,13 @@
+services:
+  session7-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.session7
+    ports:
+      - "8501:8501"
+    environment:
+      OLLAMA_HOST: http://host.docker.internal:11434
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./artifacts/session7:/app/artifacts/session7

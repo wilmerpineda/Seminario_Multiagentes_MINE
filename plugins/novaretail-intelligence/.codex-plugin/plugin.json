@@ -1,0 +1,22 @@
+{
+  "name": "novaretail-intelligence",
+  "version": "0.1.0",
+  "description": "Workflow multiagente local para analizar escenarios de descuentos de NovaRetail.",
+  "author": {
+    "name": "Curso Modelos Multiagentes"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "NovaRetail Intelligence",
+    "shortDescription": "Analiza descuentos con agentes, ML y evidencia.",
+    "longDescription": "Ejecuta un supervisor, analistas paralelos y un reviewer sobre un modelo Random Forest y documentos de NovaRetail.",
+    "developerName": "Curso Modelos Multiagentes",
+    "category": "Productivity",
+    "capabilities": ["Interactive", "Write"],
+    "defaultPrompt": [
+      "Evalua descuentos para clientes de alto valor.",
+      "Compara escenarios de margen en Pereira.",
+      "Consulta una ejecucion previa del workflow."
+    ]
+  }
+}

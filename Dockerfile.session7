@@ -1,0 +1,25 @@
+FROM python:3.14-slim
+
+WORKDIR /app
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    OLLAMA_HOST=http://host.docker.internal:11434
+
+COPY pyproject.toml ./
+RUN pip install --no-cache-dir \
+    "pandas>=3.0.3,<4" \
+    "ollama>=0.6.2,<0.7" \
+    "pydantic>=2.13.4,<3" \
+    "streamlit>=1.51,<2" \
+    "scikit-learn>=1.9,<2"
+
+COPY agents ./agents
+COPY apps ./apps
+COPY data ./data
+
+EXPOSE 8501
+
+HEALTHCHECK CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:8501/_stcore/health')"
+
+CMD ["streamlit", "run", "apps/sesion7_intelligent_workflow.py", "--server.address=0.0.0.0", "--server.port=8501"]

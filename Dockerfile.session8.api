@@ -1,0 +1,13 @@
+FROM python:3.14-slim AS runtime
+
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
+WORKDIR /app
+RUN addgroup --system app && adduser --system --ingroup app app
+COPY pyproject.toml poetry.lock ./
+RUN pip install --no-cache-dir poetry && poetry config virtualenvs.create false && poetry install --only main --no-root
+COPY agents ./agents
+COPY apps/sesion8_bi_api.py ./apps/sesion8_bi_api.py
+RUN mkdir -p /app/artifacts/session8 && chown -R app:app /app
+USER app
+EXPOSE 8080
+CMD ["sh", "-c", "uvicorn apps.sesion8_bi_api:app --host 0.0.0.0 --port ${PORT:-8080}"]

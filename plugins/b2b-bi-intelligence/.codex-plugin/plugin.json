@@ -1,0 +1,16 @@
+{
+  "name": "b2b-bi-intelligence",
+  "version": "0.1.0",
+  "description": "Consulta una API multiagente de inteligencia de negocios B2B con SQL seguro y evidencia.",
+  "author": {"name": "Curso Modelos Multiagentes"},
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "B2B BI Intelligence",
+    "shortDescription": "Analiza KPIs B2B con SQL seguro y evidencia.",
+    "longDescription": "Consulta ingresos, margen, conversión, metas y cartera mediante el workflow de la sesión 8.",
+    "developerName": "Curso Modelos Multiagentes",
+    "category": "Productivity",
+    "capabilities": ["Interactive"],
+    "defaultPrompt": ["Analiza la evolución de ingresos por región.", "Explica la cartera vencida.", "Consulta una ejecución previa."]
+  }
+}

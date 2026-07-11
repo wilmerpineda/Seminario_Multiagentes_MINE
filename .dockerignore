@@ -1,0 +1,10 @@
+.git
+.venv
+**/.venv
+**/__pycache__
+.pytest_cache
+artifacts
+notebooks
+*.ipynb
+*.docx
+.env

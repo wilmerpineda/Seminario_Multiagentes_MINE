@@ -1,0 +1,4 @@
+interface:
+  display_name: "B2B BI Intelligence"
+  short_description: "Consulta KPIs B2B mediante una API multiagente"
+  default_prompt: "Usa $b2b-bi-intelligence para analizar los KPIs comerciales B2B."

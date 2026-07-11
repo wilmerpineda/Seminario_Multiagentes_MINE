@@ -1,0 +1,65 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: session8
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: local-admin-password
+    volumes:
+      - session8-postgres:/var/lib/postgresql/data
+      - ./data/session8/init.sql:/docker-entrypoint-initdb.d/001-init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d session8"]
+      interval: 5s
+      timeout: 5s
+      retries: 15
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.session8.api
+    environment:
+      DATABASE_URL: postgresql+psycopg://bi_reader:local-reader-password@postgres:5432/session8
+      API_KEY: ${API_KEY:-session8-local-key}
+      LLM_PROVIDER: ${LLM_PROVIDER:-ollama}
+      ENABLE_LLM: ${ENABLE_LLM:-false}
+      OLLAMA_HOST: http://ollama:11434
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-qwen2.5:3b}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports: ["8000:8080"]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8080/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile.session8.dashboard
+    environment:
+      BI_API_URL: http://api:8080
+      API_KEY: ${API_KEY:-session8-local-key}
+    depends_on:
+      api:
+        condition: service_healthy
+    ports: ["8501:8080"]
+
+  ollama:
+    image: ollama/ollama:latest
+    profiles: ["ollama"]
+    volumes:
+      - session8-ollama:/root/.ollama
+    ports: ["11434:11434"]
+
+  ollama-pull:
+    image: curlimages/curl:latest
+    profiles: ["ollama"]
+    depends_on: [ollama]
+    command: ["sh", "-c", "until curl -sf http://ollama:11434/api/tags; do sleep 2; done; curl -sf http://ollama:11434/api/pull -d '{\"name\":\"${OLLAMA_MODEL:-qwen2.5:3b}\"}'"]
+
+volumes:
+  session8-postgres:
+  session8-ollama:

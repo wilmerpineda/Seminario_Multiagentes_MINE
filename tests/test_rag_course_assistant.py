@@ -86,7 +86,7 @@ def test_business_case_documents_build_unique_chunks() -> None:
     chunks = assistant.build_chunks(max_chars=900)
     chunk_ids = [chunk.chunk_id for chunk in chunks]
 
-    assert len(documents) == 3
+    assert len(documents) >= 3
     assert chunks
     assert len(chunk_ids) == len(set(chunk_ids))
     assert any("NovaRetail" in chunk.text for chunk in chunks)

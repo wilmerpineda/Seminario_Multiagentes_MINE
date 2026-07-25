@@ -1,0 +1,6 @@
+customer_id,segment,preferred_channel,category_affinity,expected_order_value,contact_allowed,vulnerable_customer
+C001,alto_valor,app,"tecnologia|hogar",850000,true,false
+C002,en_riesgo,whatsapp,"bienestar|hogar",320000,true,false
+C003,nuevo,email,"moda",180000,true,false
+C004,frecuente,app,"tecnologia|moda",450000,false,false
+C005,frecuente,call_center,"bienestar",260000,true,true

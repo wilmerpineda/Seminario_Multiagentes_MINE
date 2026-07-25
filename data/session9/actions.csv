@@ -1,0 +1,6 @@
+action_id,label,channel,category,eligible_segments,incentive_cost,expected_conversion,operational_risk,requires_human_approval
+A01,Bundle hogar premium,app,hogar,"frecuente|alto_valor",60000,0.32,0.20,false
+A02,Cupón de reactivación,whatsapp,bienestar,"en_riesgo",25000,0.28,0.15,false
+A03,Bienvenida primera compra,email,moda,"nuevo",15000,0.38,0.10,false
+A04,Financiación asistida,call_center,tecnologia,"frecuente|alto_valor",90000,0.30,0.65,true
+A05,Oferta masiva de alto descuento,email,hogar,"nuevo|frecuente|alto_valor|en_riesgo",140000,0.35,0.85,true

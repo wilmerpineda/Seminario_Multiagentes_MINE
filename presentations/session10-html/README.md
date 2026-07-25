@@ -1,6 +1,8 @@
-# Presentación HTML · Sesión 10
+# Experiencia HTML · Sesión 10
 
-La presentación es autocontenida y no necesita instalar dependencias.
+La experiencia es autocontenida y no necesita instalar dependencias. Está
+planteada como una sala de investigación de incidentes, no como una copia
+lineal de las diapositivas.
 
 ## Abrir localmente
 
@@ -14,11 +16,11 @@ Después visite `http://localhost:8000`.
 
 ## Controles
 
-- Clic en una tarjeta: abrir la diapositiva.
-- Flechas izquierda/derecha: navegar.
-- `F`: activar o salir de pantalla completa.
-- `Esc`: volver a la cuadrícula.
-- Selector superior: filtrar por bloque temático.
+- Vote `Aprobar`, `Escalar` o `Detener` para revelar el diagnóstico de un caso.
+- Utilice la autopsia para proponer un control según el fallo y la etapa.
+- Recorra las seis pruebas progresivas y revele su evaluación.
+- Abra cada instrumento normativo para ver obligación, naturaleza y evidencia.
+- Mueva los controles del simulador para comparar costo técnico y riesgo.
 
-El HTML conserva el vínculo al PowerPoint y enlaza las fuentes oficiales del
-marco regulatorio y de gobernanza.
+Los casos simulados están identificados. Los casos reales y el marco normativo
+enlazan sus fuentes oficiales.
